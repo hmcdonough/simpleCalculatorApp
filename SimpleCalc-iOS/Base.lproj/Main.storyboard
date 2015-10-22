@@ -131,6 +131,9 @@
                                 <rect key="frame" x="429" y="323" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Equals"/>
+                                <connections>
+                                    <action selector="equals:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fxn-J5-GLW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVn-Zh-lTa">
                                 <rect key="frame" x="152" y="376" width="42" height="30"/>

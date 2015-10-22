@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.text! = "0.0"
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -28,16 +29,59 @@ class ViewController: UIViewController {
         }
     }
     
+    var currentTotal = 0.0
+    var currentLabel = ""
+    var newValue = 0.0
+    var currentOperation = ""
+    
     @IBOutlet weak var label: UILabel!
     
+    //2-3-4-+-1-2 234 + 12 = 246
+    
     @IBAction func addNumToLabel(sender: UIButton) {
-        print(sender.currentTitle!)
+        if (currentOperation == "") {
+            currentTotal = currentTotal * 10 + Double(sender.currentTitle!)!
+            self.label.text! = String(currentTotal)
+        } else {
+            newValue = newValue * 10 + Double(sender.currentTitle!)!
+            label.text! = String(newValue)
+        }
+        
+//        if (currentTotal == 0.0) {
+//            currentTotal = Double(label.text!)!
+//        } else {
+//            currentTotal = currentTotal * 10 + Double(label.text!)!
+//            label.text! = String(currentTotal)
+//        }
     }
     
     @IBAction func addOperationToLabel(sender: UIButton) {
         print(sender.currentTitle!)
     }
     
+    @IBAction func equals(sender: UIButton) {
+        if (currentOperation != "") {
+            updateLabel()
+        }
+    }
+ 
+    //takes currentTotal [currentOperation] newValue
+    func updateLabel() {
+        switch currentOperation {
+        case "+":
+            label.text! = String(currentTotal + newValue)
+        case "-":
+            label.text! = String(currentTotal - newValue)
+        case "*":
+            label.text! = String(currentTotal * newValue)
+        case "/":
+            label.text! = String(currentTotal / newValue)
+        case "%":
+            label.text! = String(currentTotal % newValue)
+        default:
+           label.text! = String(currentTotal)
+        }
+    }
     
 //    let calc = "fixme"
 //    if calc == "fact" {
