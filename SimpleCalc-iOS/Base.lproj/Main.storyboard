@@ -175,6 +175,14 @@
                                     <action selector="addOperationToLabel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="08b-JA-USh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpB-tZ-KwT">
+                                <rect key="frame" x="434" y="376" width="36" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearLabel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZF5-sM-Jrm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -182,6 +190,7 @@
                             <constraint firstItem="fOb-El-m63" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="265" id="1K2-S3-jiO"/>
                             <constraint firstItem="i2T-qG-FBI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-26" id="4Nz-4P-HHh"/>
                             <constraint firstItem="fOb-El-m63" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="67" id="9ot-CB-SYm"/>
+                            <constraint firstItem="DpB-tZ-KwT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="152" id="CE5-OI-xeX"/>
                             <constraint firstItem="rTS-rW-S0P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="152" id="Ets-Iy-RGF"/>
                             <constraint firstItem="7xy-Zs-GPE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="303" id="Fxu-ax-dZa"/>
                             <constraint firstItem="HBh-qy-nWA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="169" id="JoD-de-GCB"/>
@@ -217,6 +226,7 @@
                             <constraint firstItem="LaE-CN-6q9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="303" id="sKg-bJ-O11"/>
                             <constraint firstItem="bc3-yQ-HCo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="169" id="sWf-wJ-uU6"/>
                             <constraint firstItem="sVn-Zh-lTa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="356" id="uNt-gr-Vzk"/>
+                            <constraint firstItem="DpB-tZ-KwT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="356" id="vY2-o8-ND2"/>
                             <constraint firstItem="jI5-jU-cpT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="67" id="wh9-WC-Xm9"/>
                             <constraint firstItem="i2T-qG-FBI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="265" id="xpT-si-vIa"/>
                         </constraints>

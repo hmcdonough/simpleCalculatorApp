@@ -30,13 +30,11 @@ class ViewController: UIViewController {
     }
     
     var currentTotal = 0.0
-    var currentLabel = ""
     var newValue = 0.0
     var currentOperation = ""
+    var count = 0.0
     
     @IBOutlet weak var label: UILabel!
-    
-    //2-3-4-+-1-2 234 + 12 = 246
     
     @IBAction func addNumToLabel(sender: UIButton) {
         if (currentOperation == "") {
@@ -50,19 +48,28 @@ class ViewController: UIViewController {
     
     @IBAction func addOperationToLabel(sender: UIButton) {
         if (currentOperation != "") {
-            updateLabel()
+            updateLabel(false)
         }
         currentOperation = sender.currentTitle!
+        count++
     }
     
     @IBAction func equals(sender: UIButton) {
         if (currentOperation != "") {
-            updateLabel()
+            updateLabel(true)
         }
+    }
+
+    @IBAction func clearLabel(sender: UIButton) {
+        currentOperation = ""
+        count = 0.0
+        currentTotal = 0.0
+        newValue = 0.0
+        label.text! = "0.0"
     }
  
     //takes currentTotal [currentOperation] newValue
-    func updateLabel() {
+    func updateLabel(isEquals: Bool) {
         switch currentOperation {
         case "+":
             label.text! = String(currentTotal + newValue)
@@ -74,6 +81,15 @@ class ViewController: UIViewController {
             label.text! = String(currentTotal / newValue)
         case "%":
             label.text! = String(currentTotal % newValue)
+        case "Count":
+            label.text! = String(count)
+        case "Avg":
+            label.text! = String(currentTotal + newValue)
+            if (isEquals) {
+                label.text! = String(currentTotal / count)
+            }
+        case "Fact":
+            label.text! = String(factorial(currentTotal))
         default:
            label.text! = String(currentTotal)
         }
@@ -81,42 +97,5 @@ class ViewController: UIViewController {
         newValue = 0.0
         currentTotal = Double(label.text!)!
     }
-    
-//    let calc = "fixme"
-//    if calc == "fact" {
-//        print("Result: " + String(factorial(convert(numbers[0]))))
-//    } else if numbers.count == 1 {
-//        let firstNum = convert(numbers[0])
-//        let secondNum = convert(input())
-//        print("Result: ")
-//        switch calc {
-//        case "+":
-//            print(firstNum + secondNum)
-//        case "-":
-//            print(firstNum - secondNum)
-//        case "*":
-//            print(firstNum * secondNum)
-//        case "/":
-//            print(firstNum / secondNum)
-//        case "%":
-//            print(firstNum % secondNum)
-//        default:
-//            print("Unrecognized calculator command passed")
-//        }
-//    } else {
-//        print("Result: ")
-//        switch calc {
-//        case "count":
-//            print(numbers.count)
-//        case "avg":
-//            var total = 0.0;
-//            for i in 0...(numbers.count - 1) {
-//                total += convert(numbers[i])
-//            }
-//            print(total / Double(numbers.count))
-//        default:
-//            print("Unrecognized calculator command passed")
-//        }
-//    }
 }
 
