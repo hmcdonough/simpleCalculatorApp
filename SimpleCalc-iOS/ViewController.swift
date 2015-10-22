@@ -46,17 +46,13 @@ class ViewController: UIViewController {
             newValue = newValue * 10 + Double(sender.currentTitle!)!
             label.text! = String(newValue)
         }
-        
-//        if (currentTotal == 0.0) {
-//            currentTotal = Double(label.text!)!
-//        } else {
-//            currentTotal = currentTotal * 10 + Double(label.text!)!
-//            label.text! = String(currentTotal)
-//        }
     }
     
     @IBAction func addOperationToLabel(sender: UIButton) {
-        print(sender.currentTitle!)
+        if (currentOperation != "") {
+            updateLabel()
+        }
+        currentOperation = sender.currentTitle!
     }
     
     @IBAction func equals(sender: UIButton) {
@@ -81,6 +77,9 @@ class ViewController: UIViewController {
         default:
            label.text! = String(currentTotal)
         }
+        currentOperation = ""
+        newValue = 0.0
+        currentTotal = Double(label.text!)!
     }
     
 //    let calc = "fixme"
