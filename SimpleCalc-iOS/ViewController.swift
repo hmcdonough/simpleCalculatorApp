@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     var currentTotal = 0.0
     var newValue = 0.0
     var currentOperation = ""
-    var count = 0.0
+    var count = 1.0
     
     @IBOutlet weak var label: UILabel!
     
@@ -52,6 +52,11 @@ class ViewController: UIViewController {
         }
         currentOperation = sender.currentTitle!
         count++
+        if (currentOperation == "Fact") {
+            label.text! = String(factorial(currentTotal))
+            currentOperation = ""
+            currentTotal = Double(label.text!)!
+        }
     }
     
     @IBAction func equals(sender: UIButton) {
@@ -62,7 +67,7 @@ class ViewController: UIViewController {
 
     @IBAction func clearLabel(sender: UIButton) {
         currentOperation = ""
-        count = 0.0
+        count = 1.0
         currentTotal = 0.0
         newValue = 0.0
         label.text! = "0.0"
@@ -86,10 +91,8 @@ class ViewController: UIViewController {
         case "Avg":
             label.text! = String(currentTotal + newValue)
             if (isEquals) {
-                label.text! = String(currentTotal / count)
+                label.text! = String((currentTotal + newValue) / count)
             }
-        case "Fact":
-            label.text! = String(factorial(currentTotal))
         default:
            label.text! = String(currentTotal)
         }
